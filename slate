@@ -1,0 +1,7 @@
+bind j:cmd focus 'Google Chrome'
+bind k:cmd focus 'GitHub Desktop'
+bind l:cmd focus 'iTerm2'
+bind h:cmd focus 'Slack'
+bind m:cmd focus 'Spotify'
+bind e:cmd focus 'Emacs'
+bind p:cmd focus 'Postico'
