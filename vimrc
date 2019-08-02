@@ -1,6 +1,7 @@
 
 
 """"""""""""" General ViM Settings """""""""
+
 scriptencoding utf-8
 syntax on
 filetype plugin indent on
@@ -43,6 +44,9 @@ set completeopt=preview,menu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'matze/vim-move'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'kshenoy/vim-signature'
@@ -51,6 +55,17 @@ Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
+Plug 'jremmen/vim-ripgrep'
+
+Plug 'mhinz/vim-mix-format'
+let g:mix_format_on_save = 1
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+map <C-s> :w <CR> :echo "Saved" <CR>
+imap <C-s> <Esc> :w <CR> :echo "Saved" <CR> i
+
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'itchyny/lightline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -77,7 +92,7 @@ Plug 'Wutzara/vim-materialtheme'
 Plug 'tpope/vim-fugitive'
 Plug 'ElmCast/elm-vim'
 Plug 'fishcakez/vim-erlang'
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
@@ -271,6 +286,7 @@ let g:ycm_show_diagnostics_ui = 0
 let g:ycm_semantic_triggers =  {
             \   'javascript,typescript,python,haskell,go' : ['.'],
             \   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
+            \   'elm' : ['.'],
             \   'ruby,rust' : ['.', '::'],
             \ }
 " let g:ycm_rust_src_path = '/Users/peitalin/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
@@ -299,6 +315,7 @@ set foldlevelstart=10
 if line("$") > 400
     set foldlevel=3
 endif
+nnoremap <C-g> :Rg<Cr>
 
 let g:tagbar_type_markdown = {
 \ 'ctagstype': 'markdown',
@@ -318,6 +335,7 @@ let g:jedi#popup_select_first = 0
 au FileType python setlocal completeopt-=preview " The reason to deactivate jedi#auto_vim_configuration
 " popup function documentation window, preview -> popup
 
+let g:move_key_modifier = 'C'
 
 
 """"""""""""" Custom key bindings """"""""""
@@ -357,7 +375,7 @@ map <C-t> :NERDTreeToggle<CR>
 ""  buffers
 " nmap gt :bnext<CR>
 " nmap tg :bprevious<CR>
-nmap bd :bdelete<CR>
+nmap <Leader>bd :bdelete<CR>
 nmap <Leader>b :Buffers<CR>
 nmap tg :tabprevious<CR>
 
