@@ -63,6 +63,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " OWN Plugs
 Plug 'tpope/vim-fugitive'
 Plug 'ElmCast/elm-vim'
+let g:elm_format_autosave = 1
 Plug 'fishcakez/vim-erlang'
 Plug 'elixir-editors/vim-elixir'
 Plug 'janko-m/vim-test'
@@ -71,6 +72,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-repeat'
 Plug 'aklt/plantuml-syntax'
+Plug 'pangloss/vim-javascript'
 
 
 
@@ -351,5 +353,5 @@ let g:indent_guides_tab_guides = 1
 
 """"""""""""" Color Schemes """"""""""""""""
 set termguicolors
-colorscheme dracula
+colorscheme gruvbox
 
