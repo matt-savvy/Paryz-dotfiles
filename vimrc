@@ -125,15 +125,6 @@ let b:ale_linters = ['tslint']
 let g:ale_linters = {'jsx': ['tslint']}
 let g:ale_sign_column_always = 1 "" annoying if it's not kept open
 
-" Completion - youcompleteme
-Plug 'Valloric/YouCompleteMe', {
-     \ 'build' : {
-     \     'mac' : './install.py --ts-completer --rust-completer',
-     \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-     \    }
-     \ }
-
-
 "" Docker
 Plug 'ekalinin/Dockerfile.vim'
 
@@ -217,17 +208,6 @@ let g:ycm_auto_trigger = 1 " complete as you type, default = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_python_binary_path = 'python3'
 let g:ycm_key_invoke_completion = '<C-n>'
-" Disable loading YCM
-let g:loaded_youcompleteme = 1
-" Disable loading YCM linting
-let g:ycm_show_diagnostics_ui = 0
-""" Javascript YCM completion
-let g:ycm_semantic_triggers =  {
-            \   'javascript,typescript,python,haskell,go' : ['.'],
-            \   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
-            \   'elm' : ['.'],
-            \   'ruby,rust' : ['.', '::'],
-            \ }
 " let g:ycm_rust_src_path = '/Users/peitalin/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 let g:ycm_filetype_whitelist = {
             \ "c":1,
@@ -284,7 +264,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 ""  buffers
 " nmap gt :bnext<CR>
 " nmap tg :bprevious<CR>
-nmap <Leader>bd :bdelete<CR>
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
 nmap <Leader>b :Buffers<CR>
 nmap tg :tabprevious<CR>
 
