@@ -1,54 +1,17 @@
-
-
-""""""""""""" General ViM Settings """""""""
-
-scriptencoding utf-8
-syntax on
-filetype plugin indent on
-set hidden
-set encoding=utf-8  " Use utf-8 encoding
-set incsearch       " move while searching
-set laststatus=2    " always show the status line
-set report=0        " tell us when anything is changed via :...
-set scrolloff=10    " Keep 10 lines (top/bottom) for scope
-set showcmd         " show the command being typed
-set showmatch       " show matching brackets
-set backspace=indent,eol,start
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab                     " Tabs insert 2 space characters
-set virtualedit+=block            " Allow the cursor to go anywhere in visual block mode
-set relativenumber                " Relative line numbers
-set number                        " Line numbers [:set number!] to turn off
-set numberwidth=5                 " We are good up to 99999 lines
-set sidescrolloff=10              " Keep 5 lines at the size
-set list                          " Show whitespace and tabs
-set listchars=tab:\¦·,trail:·     " show tabs and trailing whitespace
-set clipboard=unnamed             " copy and paste with *
-set mouse=a                       " Scrollable term-vim
-" set cursorcolumn
-autocmd BufWritePre * %s/\s\+$//e " trim trailing whitespace
-set nohlsearch    " highlight removed until next search
-" set splitbelow  " Preview window opens to the bottom, not above
-set splitright    " Preview window opens to the right, not above
-set shortmess=aFc " remove prompts to continue messages in cmd line
-" set completeopt=menuone,longest,preview
-set completeopt=preview,menu
-""""""""""""" END General ViM Settings """""""""""""""""
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""" Plug configs """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'elixir-editors/vim-elixir'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
+Plug 'jnurmine/Zenburn'
+Plug 'petobens/colorish'
+Plug 'jreybert/vimagit'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'jremmen/vim-ripgrep'
 Plug 'mhinz/vim-mix-format'
 let g:mix_format_on_save = 1
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
@@ -61,69 +24,14 @@ imap <C-s> <Esc> :w <CR> :echo "Saved" <CR> i
 Plug 'ctrlpvim/ctrlp.vim'
 
 " OWN Plugs
-Plug 'tpope/vim-fugitive'
 Plug 'ElmCast/elm-vim'
 let g:elm_format_autosave = 1
+
 Plug 'fishcakez/vim-erlang'
-Plug 'elixir-editors/vim-elixir'
-Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
-Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-repeat'
 Plug 'aklt/plantuml-syntax'
-Plug 'pangloss/vim-javascript'
-
-
-
-
-
-" """""""""""" Autocompletion """"""""""""""""""""""""""""""""
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-nmap <silent> td <Plug>(coc-definition)
-nmap <silent> tt <Plug>(coc-type-definition)
-nmap <silent> ti <Plug>(coc-implementation)
-nmap <silent> tr <Plug>(coc-references)
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-" Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-nnoremap <silent> H :call CocActionAsync('highlight')<CR>
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-nmap <C-c> :CocEnable<CR>
-nmap <C-x> :CocDisable<CR>
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable, 'rls']},
-        \ 'whitelist': ['rust'],
-        \ 'blacklist': ['javascript', 'jsx', 'tsx', 'typescript'],
-        \ })
-endif
-
-" Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
-" ONLY FOR typescript until neoclide preview window is working better
-Plug 'w0rp/ale'
-let g:ale_sign_error = '>'
-let g:ale_sign_warning = '!'
-let g:ale_lint_delay = 200
-let b:ale_linters = ['tslint']
-let g:ale_linters = {'jsx': ['tslint']}
-let g:ale_sign_column_always = 1 "" annoying if it's not kept open
 
 "" Docker
 Plug 'ekalinin/Dockerfile.vim'
@@ -160,7 +68,6 @@ let g:vim_json_syntax_conceal = 0
 " Plug 'jparise/vim-graphql'
 " Plug 'posva/vim-vue'
 
-
 """"""" Brackets & Parentheses highlighting
 " Allow autoclose paired characters like [,] or (,),
 Plug 'jiangmiao/auto-pairs'
@@ -177,76 +84,175 @@ let g:mta_filetypes = {
             \ 'typescript' : 1
             \}
 
-"""""""""""" Vim Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-" Snippets/Macros for DOM tags
-Plug 'mattn/emmet-vim'
 " C-m is synonymous with 'enter', so will cause enter key to lag
 let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 
+
 call plug#end()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""" PLUGS MUST BE ABOVE THIS LINE """""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set hidden
+set encoding=utf-8  " Use utf-8 encoding
+set incsearch       " move while searching
+set laststatus=2    " always show the status line
+set report=0        " tell us when anything is changed via :...
+set scrolloff=10    " Keep 10 lines (top/bottom) for scope
+set showcmd         " show the command being typed
+set showmatch       " show matching brackets
+set backspace=indent,eol,start
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab                     " Tabs insert 2 space characters
+set virtualedit+=block            " Allow the cursor to go anywhere in visual block mode
+set relativenumber                " Relative line numbers
+set number                        " Line numbers [:set number!] to turn off
+set numberwidth=5                 " We are good up to 99999 lines
+set sidescrolloff=10              " Keep 5 lines at the size
+set list                          " Show whitespace and tabs
+set listchars=tab:\¦·,trail:·     " show tabs and trailing whitespace
+set clipboard=unnamed             " copy and paste with *
+set mouse=a                       " Scrollable term-vim
+set autoread
+" TextEdit might fail if hidden is not set.
 
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
 
+" Give more space for displaying messages.
+set cmdheight=2
 
-""""""""""""" YCM YouCompleteMe """"""""""""""""""""""""""""""""
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_min_num_of_chars_for_completion = 1 " default = 2
-let g:ycm_min_num_identifier_candidate_chars = 0 " default = 0
-let g:ycm_auto_trigger = 1 " complete as you type, default = 1
-" let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_key_invoke_completion = '<C-n>'
-" let g:ycm_rust_src_path = '/Users/peitalin/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
-let g:ycm_filetype_whitelist = {
-            \ "c":1,
-            \ "cpp":1,
-            \ "javascript":1,
-            \ "javascript.jsx":1,
-            \ "typescript":1,
-            \ "typescript.tsx":1,
-            \ "python":1,
-            \ "rust":0,
-            \ }
-let g:ycm_filetype_blacklist = { 'rust': 1 }
-" nnoremap <silent> te :YcmCompleter GetDoc<CR>
-" nnoremap <silent> tt :YcmCompleter GetType<CR>
-" nnoremap <silent> td :YcmCompleter GoToDefinition<CR>
-" nnoremap <silent> tr :YcmCompleter RefactorRename
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
-""""""""""" Toggle Fold Columns
-set foldmethod=indent
-set foldnestmax=1
-" nnoremap <C-c> :%foldc<CR>
-set foldlevelstart=10
-if line("$") > 400
-    set foldlevel=3
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-nnoremap <C-g> :Rg<Cr>
 
-let g:tagbar_type_markdown = {
-\ 'ctagstype': 'markdown',
-\ 'kinds': ['h:Heading_L1', 'i:Heading_L2', 'k:Heading_L3']
-\ }
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <silent> <F11> :TagbarToggle<CR>
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-""""""""""""" Custom key bindings """"""""""
-"""NEVER MAP TO: <C-[> , causes mouse scrolling bug
-" http://stackoverflow.com/questions/21738018/vim-how-do-i-map-number-keys
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let mapleader = "\<Space>"
 
 " replace tabs with 4 whitespace
@@ -266,8 +272,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " nmap tg :bprevious<CR>
 map gn :bn<cr>
 map gp :bp<cr>
-map gd :bd<cr>
 nmap <Leader>b :Buffers<CR>
+" open magit
+nmap <Leader>gs :Magit<CR>
 nmap tg :tabprevious<CR>
 
 "" Refresh file state
@@ -288,17 +295,12 @@ vnoremap y "*y
 vnoremap <C-v> "+p
 vnoremap p "*p
 
-""""""""" Tab indent
-vnoremap <TAB> >
-vnoremap <S-TAB> <
-nnoremap <TAB> V >
-nnoremap <S-TAB> V <
-
 """""" disable annoying lowercase shortcut in visual-mode
 vnoremap u <Nop>
 
 " Plugins Mapping
 nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>r :Rg<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>vs :execute "vsplit " . bufname("#")<CR>
 nnoremap <Leader>sp :execute "split " . bufname("#")<CR>
@@ -335,5 +337,5 @@ let g:indent_guides_tab_guides = 1
 
 """"""""""""" Color Schemes """"""""""""""""
 set termguicolors
-colorscheme gruvbox
+colorscheme heraldish
 
