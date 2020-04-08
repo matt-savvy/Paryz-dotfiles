@@ -1,46 +1,49 @@
 call plug#begin('~/.vim/plugged')
 
+" Coc-nvim 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'elixir-editors/vim-elixir'
-Plug 'fatih/vim-go'
-let g:go_fmt_autosave = 1
-let g:go_metalinter_autosave = 1
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'thoughtbot/vim-rspec'
-Plug 'morhetz/gruvbox'
-Plug 'jnurmine/Zenburn'
-Plug 'petobens/colorish'
-Plug 'jreybert/vimagit'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-surround'
-Plug 'Lokaltog/vim-easymotion'
+" Editor plugs
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'mhinz/vim-mix-format'
-let g:mix_format_on_save = 1
-" Allow us to use Ctrl-s and Ctrl-q as keybinds
-silent !stty -ixon
-" Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
-map <C-s> :w <CR> :echo "Saved" <CR>
-imap <C-s> <Esc> :w <CR> :echo "Saved" <CR> i
-
-Plug 'ctrlpvim/ctrlp.vim'
-
-" OWN Plugs
-Plug 'ElmCast/elm-vim'
-let g:elm_format_autosave = 1
-
-Plug 'fishcakez/vim-erlang'
+Plug 'itchyny/lightline.vim'
+Plug 'jreybert/vimagit'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/MatchTagAlways'
+
+" Elixir & Erlang
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+let g:mix_format_on_save = 1
+Plug 'fishcakez/vim-erlang'
+
+" Elm
+Plug 'ElmCast/elm-vim'
+let g:elm_format_autosave = 1
+
+" Ruby
+Plug 'thoughtbot/vim-rspec'
 Plug 'aklt/plantuml-syntax'
+
+" Go
+Plug 'fatih/vim-go'
+let g:go_fmt_autosave = 1
+let g:go_metalinter_autosave = 1
+
+" Color themes
+Plug 'morhetz/gruvbox'
+Plug 'jnurmine/Zenburn'
+Plug 'petobens/colorish'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 "" Docker
 Plug 'ekalinin/Dockerfile.vim'
 
-"""" CSS syntax highlight
+" CSS syntax highlight
 Plug 'othree/csscomplete.vim'
 " Add Support css3 properties
 Plug 'hail2u/vim-css3-syntax'
@@ -73,10 +76,6 @@ let g:vim_json_syntax_conceal = 0
 " Plug 'posva/vim-vue'
 
 """"""" Brackets & Parentheses highlighting
-" Allow autoclose paired characters like [,] or (,),
-Plug 'jiangmiao/auto-pairs'
-" Highlights the matching HTML tag when the cursor is positioned on a tag.
-Plug 'Valloric/MatchTagAlways'
 " Valloric/MatchTagAlways"
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
 let g:mta_filetypes = {
@@ -91,8 +90,6 @@ let g:mta_filetypes = {
 " C-m is synonymous with 'enter', so will cause enter key to lag
 let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
-
-
 call plug#end()
 
 set hidden
@@ -137,6 +134,13 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+map <C-s> :w <CR> :echo "Saved" <CR>
+imap <C-s> <Esc> :w <CR> :echo "Saved" <CR> i
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -298,10 +302,6 @@ nmap <Leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 nmap <Leader>gs :Magit<CR>
 nmap tg :tabprevious<CR>
 
-"" Refresh file state
-map <leader>r :e! <CR>
-nmap <leader>w :wa<CR>
-
 """"""""""" window navigation
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
@@ -322,6 +322,7 @@ vnoremap u <Nop>
 " Plugins Mapping
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>r :Rg<CR>
+nnoremap <Leader><Leader>t :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>vs :execute "vsplit " . bufname("#")<CR>
 nnoremap <Leader>sp :execute "split " . bufname("#")<CR>
