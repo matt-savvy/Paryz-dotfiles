@@ -52,7 +52,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  elixir
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,9 +88,23 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vimrc="vim ~/.config/nvim/init.nvim"
 alias rs="rails server"
 alias rc="rails console"
 alias v="vim"
+alias vim="nvim"
 alias gbD="git branch -D"
 alias grepuj="grep -Rynl"
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+export NODE_OPTIONS=--max_old_space_size=8192
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+export ASDF_DIR=/Users/paryz/.asdf
+export PATH=$PATH:$ASDF_DIR/bin
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"

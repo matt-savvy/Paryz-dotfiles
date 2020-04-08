@@ -3,7 +3,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'elixir-editors/vim-elixir'
+Plug 'fatih/vim-go'
+let g:go_fmt_autosave = 1
+let g:go_metalinter_autosave = 1
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'thoughtbot/vim-rspec'
 Plug 'morhetz/gruvbox'
 Plug 'jnurmine/Zenburn'
 Plug 'petobens/colorish'
@@ -236,6 +240,22 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
+
 " Mappings using CoCList:
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -273,6 +293,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 map gn :bn<cr>
 map gp :bp<cr>
 nmap <Leader>b :Buffers<CR>
+nmap <Leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 " open magit
 nmap <Leader>gs :Magit<CR>
 nmap tg :tabprevious<CR>
@@ -338,4 +359,5 @@ let g:indent_guides_tab_guides = 1
 """"""""""""" Color Schemes """"""""""""""""
 set termguicolors
 colorscheme heraldish
+
 
