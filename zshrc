@@ -1,9 +1,12 @@
 source "$HOME/.slimzsh/slim.zsh"
+source $HOME/.zshrc-recruitee
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/paryz/.oh-my-zsh
+export TEXLIVE_ADDRESS=/Library/TeX/texbin/pdflatex
+export PORT=3000
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -84,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -106,6 +109,8 @@ export NODE_OPTIONS=--max_old_space_size=8192
 
 export ASDF_DIR=/Users/paryz/.asdf
 export PATH=$PATH:$ASDF_DIR/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
