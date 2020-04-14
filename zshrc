@@ -8,7 +8,7 @@ export ZSH=/Users/paryz/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias vimrc="vim ~/.config/nvim/init.nvim"
+alias vimrc="vim ~/.config/nvim/init.vim"
 alias rs="rails server"
 alias rc="rails console"
 alias v="vim"
@@ -108,3 +108,9 @@ export ASDF_DIR=/Users/paryz/.asdf
 export PATH=$PATH:$ASDF_DIR/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/Qt-%VERSION%/bin:$PATH"
+export GOPATH=$HOME/go/packages
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
