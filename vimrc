@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Editor plugs
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'itchyny/lightline.vim'
 Plug 'jreybert/vimagit'
@@ -13,7 +14,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Valloric/MatchTagAlways'
+Plug 'vim-test/vim-test'
 
 " Elixir & Erlang
 Plug 'elixir-editors/vim-elixir'
@@ -226,10 +227,18 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
+hi CocSearch ctermfg=12 guifg=#18A3FF
+hi CocMenuSel ctermbg=109 guibg=#13354A
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -323,7 +332,9 @@ vnoremap u <Nop>
 " Plugins Mapping
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>r :Rg<CR>
-nnoremap <Leader><Leader>t :call RunCurrentSpecFile()<CR>
+nnoremap <Leader><Leader>t :TestNearest<CR>
+nnoremap <Leader><Leader>a :TestFile<CR>
+nnoremap <Leader><Leader>l :TestLast<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>vs :execute "vsplit " . bufname("#")<CR>
 nnoremap <Leader>sp :execute "split " . bufname("#")<CR>
@@ -361,5 +372,3 @@ let g:indent_guides_tab_guides = 1
 """"""""""""" Color Schemes """"""""""""""""
 set termguicolors
 colorscheme heraldish
-
-
