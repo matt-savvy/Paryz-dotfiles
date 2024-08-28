@@ -22,6 +22,7 @@ vim.opt.list = true             -- Show whitespace and tabs
 vim.opt.listchars = "tab:¦·,trail:·" -- Show tabs and trailing whitespace
 vim.opt.clipboard = "unnamed"   -- Copy and paste with *
 vim.opt.mouse = "a"             -- Scrollable term-vim
+vim.opt.autoread = true         -- (default)
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
