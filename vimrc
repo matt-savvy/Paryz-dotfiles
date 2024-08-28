@@ -94,8 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-
-set showcmd         " show the command being typed
 set showmatch       " show matching brackets
 set backspace=indent,eol,start
 set tabstop=2
