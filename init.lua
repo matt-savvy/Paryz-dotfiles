@@ -7,6 +7,7 @@ vim.opt.laststatus = 2          -- Always show the status line (default)
 vim.opt.report = 2              -- Tell us when anything is changed via :...
 vim.opt.scrolloff = 10          -- Keep 10 lines (top/bottom) for scope
 vim.opt.showcmd = true          -- Show the command being typed (default)
+vim.opt.showmatch = true        -- Show matching brackets
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
