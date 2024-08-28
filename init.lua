@@ -14,6 +14,9 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.virtualedit = "block"   -- Allow the cursor to go anywhere in visual block mode
+vim.opt.relativenumber = true   -- Relative line numbers
+vim.opt.number = true           -- Line numbers [:set number!] to turn off
+vim.opt.numberwidth = 5         -- We are good up to 99999 lines
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
