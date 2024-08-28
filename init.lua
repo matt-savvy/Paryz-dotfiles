@@ -17,6 +17,7 @@ vim.opt.virtualedit = "block"   -- Allow the cursor to go anywhere in visual blo
 vim.opt.relativenumber = true   -- Relative line numbers
 vim.opt.number = true           -- Line numbers [:set number!] to turn off
 vim.opt.numberwidth = 5         -- We are good up to 99999 lines
+vim.opt.sidescrolloff = 10      -- Keep 5 lines at the size
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true

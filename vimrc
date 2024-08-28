@@ -94,7 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-set sidescrolloff=10              " Keep 5 lines at the size
 set list                          " Show whitespace and tabs
 set listchars=tab:\¦·,trail:·     " show tabs and trailing whitespace
 set clipboard=unnamed             " copy and paste with *
