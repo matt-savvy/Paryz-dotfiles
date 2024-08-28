@@ -94,8 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-" TextEdit might fail if hidden is not set.
-
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup

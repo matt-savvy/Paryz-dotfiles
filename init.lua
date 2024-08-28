@@ -23,6 +23,7 @@ vim.opt.listchars = "tab:¦·,trail:·" -- Show tabs and trailing whitespace
 vim.opt.clipboard = "unnamed"   -- Copy and paste with *
 vim.opt.mouse = "a"             -- Scrollable term-vim
 vim.opt.autoread = true         -- (default)
+-- TextEdit might fail if hidden is not set.
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
