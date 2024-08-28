@@ -8,6 +8,7 @@ vim.opt.report = 2              -- Tell us when anything is changed via :...
 vim.opt.scrolloff = 10          -- Keep 10 lines (top/bottom) for scope
 vim.opt.showcmd = true          -- Show the command being typed (default)
 vim.opt.showmatch = true        -- Show matching brackets
+vim.opt.backspace = "indent,eol,start" -- (default)
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true

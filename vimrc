@@ -94,7 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-set backspace=indent,eol,start
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
