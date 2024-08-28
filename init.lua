@@ -25,6 +25,10 @@ vim.opt.mouse = "a"             -- Scrollable term-vim
 vim.opt.autoread = true         -- (default)
 -- TextEdit might fail if hidden is not set.
 
+-- Some servers have issues with backup files, see #649.
+vim.opt.backup = false          -- (default)
+vim.opt.writebackup = false
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
