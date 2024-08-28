@@ -94,7 +94,7 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-set scrolloff=10    " Keep 10 lines (top/bottom) for scope
+
 set showcmd         " show the command being typed
 set showmatch       " show matching brackets
 set backspace=indent,eol,start
