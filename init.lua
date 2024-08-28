@@ -29,6 +29,9 @@ vim.opt.autoread = true         -- (default)
 vim.opt.backup = false          -- (default)
 vim.opt.writebackup = false
 
+-- Give more space for displaying messages.
+vim.opt.cmdheight = 2
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")

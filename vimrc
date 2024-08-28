@@ -94,9 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-" Give more space for displaying messages.
-set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
