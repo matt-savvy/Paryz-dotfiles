@@ -369,5 +369,4 @@ let g:indent_guides_tab_guides = 1
 
 
 """"""""""""" Color Schemes """"""""""""""""
-set termguicolors
 colorscheme heraldish
