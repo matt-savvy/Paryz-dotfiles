@@ -36,6 +36,9 @@ vim.opt.cmdheight = 2
 -- delays and poor user experience.
 vim.opt.updatetime = 300
 
+-- Don't pass messages to |ins-completion-menu|.
+vim.opt.shortmess:append({ c = true })
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
