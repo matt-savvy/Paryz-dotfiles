@@ -39,6 +39,10 @@ vim.opt.updatetime = 300
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append({ c = true })
 
+-- Always show the signcolumn, otherwise it would shift the text each time
+-- diagnostics appear/become resolved.
+vim.opt.signcolumn = "yes"
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")

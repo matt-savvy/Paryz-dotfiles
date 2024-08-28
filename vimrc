@@ -94,10 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 " Restore default behaviour when leaving Vim.
