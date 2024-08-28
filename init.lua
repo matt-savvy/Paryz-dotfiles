@@ -21,6 +21,7 @@ vim.opt.sidescrolloff = 10      -- Keep 5 lines at the size
 vim.opt.list = true             -- Show whitespace and tabs
 vim.opt.listchars = "tab:¦·,trail:·" -- Show tabs and trailing whitespace
 vim.opt.clipboard = "unnamed"   -- Copy and paste with *
+vim.opt.mouse = "a"             -- Scrollable term-vim
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
