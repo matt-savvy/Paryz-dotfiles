@@ -19,7 +19,7 @@ vim.opt.number = true           -- Line numbers [:set number!] to turn off
 vim.opt.numberwidth = 5         -- We are good up to 99999 lines
 vim.opt.sidescrolloff = 10      -- Keep 5 lines at the size
 vim.opt.list = true             -- Show whitespace and tabs
-vim.opt.listchars = "tab:¦·,trail:·" -- Show tabs and trailing whitespace
+vim.opt.listchars = { tab = "¦·", trail = "·" } -- Show tabs and trailing whitespace
 vim.opt.clipboard = "unnamed"   -- Copy and paste with *
 vim.opt.mouse = "a"             -- Scrollable term-vim
 vim.opt.autoread = true         -- (default)
