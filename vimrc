@@ -94,10 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab                     " Tabs insert 2 space characters
 set virtualedit+=block            " Allow the cursor to go anywhere in visual block mode
 set relativenumber                " Relative line numbers
 set number                        " Line numbers [:set number!] to turn off

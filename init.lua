@@ -9,6 +9,10 @@ vim.opt.scrolloff = 10          -- Keep 10 lines (top/bottom) for scope
 vim.opt.showcmd = true          -- Show the command being typed (default)
 vim.opt.showmatch = true        -- Show matching brackets
 vim.opt.backspace = "indent,eol,start" -- (default)
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
