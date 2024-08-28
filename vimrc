@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-" Coc-nvim 
+" Coc-nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Editor plugs
