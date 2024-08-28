@@ -94,7 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-set incsearch       " move while searching
 set laststatus=2    " always show the status line
 set report=0        " tell us when anything is changed via :...
 set scrolloff=10    " Keep 10 lines (top/bottom) for scope
