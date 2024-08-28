@@ -32,6 +32,10 @@ vim.opt.writebackup = false
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 2
 
+-- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+-- delays and poor user experience.
+vim.opt.updatetime = 300
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
