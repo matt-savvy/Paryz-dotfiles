@@ -94,7 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-set clipboard=unnamed             " copy and paste with *
 set mouse=a                       " Scrollable term-vim
 set autoread
 " TextEdit might fail if hidden is not set.
