@@ -102,6 +102,17 @@ vim.keymap.set("", "gp", vim.cmd.bprev)
 vim.keymap.set("n", "<Leader>b", vim.cmd.buffers)
 vim.keymap.set("n", "<Leader>bd", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
+----------- window navigation
+function wincmd(direction)
+    return function()
+        vim.cmd.wincmd(direction)
+    end
+end
+vim.keymap.set("n", "<C-k>", wincmd("k"), { silent = true })
+vim.keymap.set("n", "<C-j>", wincmd("j"), { silent = true })
+vim.keymap.set("n", "<C-h>", wincmd("h"), { silent = true })
+vim.keymap.set("n", "<C-l>", wincmd("l"), { silent = true })
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")

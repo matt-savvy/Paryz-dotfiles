@@ -245,12 +245,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 nmap <Leader>gs :Magit<CR>
 nmap tg :tabprevious<CR>
 
-""""""""""" window navigation
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
-
 """"""""""" clipboard copy and cut
 vmap <C-x> :!pbcopy<CR>
 " yanks and copies to system clipboard
