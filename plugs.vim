@@ -1,7 +1,3 @@
-" Elm
-Plug 'ElmCast/elm-vim'
-let g:elm_format_autosave = 1
-
 " Ruby
 Plug 'thoughtbot/vim-rspec'
 Plug 'aklt/plantuml-syntax'

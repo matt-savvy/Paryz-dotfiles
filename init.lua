@@ -26,6 +26,10 @@ plug("mhinz/vim-mix-format")
 vim.g.mix_format_on_save = 1
 plug("fishcakez/vim-erlang")
 
+-- Elm
+plug("ElmCast/elm-vim")
+vim.g.elm_format_autosave = 1
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")
