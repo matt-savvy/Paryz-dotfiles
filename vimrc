@@ -94,8 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-" Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
 map <C-s> :w <CR> :echo "Saved" <CR>
 imap <C-s> <Esc> :w <CR> :echo "Saved" <CR> i
 

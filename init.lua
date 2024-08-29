@@ -46,6 +46,12 @@ vim.opt.signcolumn = "yes"
 -- Allow us to use Ctrl-s and Ctrl-q as keybinds
 vim.cmd("silent !stty -ixon")
 
+-- Restore default behaviour when leaving Vim.
+vim.api.nvim_create_autocmd("VimLeave", {
+    pattern = "*", -- default pattern
+    command = "silent !stty ixon",
+})
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
