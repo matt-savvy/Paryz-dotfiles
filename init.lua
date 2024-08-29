@@ -58,12 +58,45 @@ local function save()
 end
 vim.keymap.set({"n", "v", "o", "i"}, "<C-s>", save)
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"typescript.tsx", "javascript.tsx", "javascript","typescript"},
-    callback = function()
-        vim.keymap.set("n", "<Leader>s", function() vim.cmd("%s/\t/    /g") end)
+
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = {"*.ts", "*.js"},
+    callback = function(_)
+        vim.print("set filetype to typescript")
+        vim.opt.filetype = "typescript.tsx"
     end
 })
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = "*.vue",
+    callback = function(_)
+        vim.opt.filetype = "vue.typescript"
+    end
+})
+
+-- replace tabs with 4 whitespace
+-- nmap <F4> :%s/\t/    /g<CR>
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"typescript.tsx", "javascript.tsx", "javascript", "typescript"},
+    callback = function(_)
+        vim.keymap.set("n", "<Leader>s", function()
+            vim.cmd("%s/\t/    /g")
+        end)
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "vue.typescript",
+        "typescript",
+        -- "*.jsx",
+        -- "*.tsx",
+        "json"},
+    callback = function(_)
+        vim.opt_local.commentstring = "// %s"
+    end
+})
+
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true

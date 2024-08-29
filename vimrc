@@ -239,14 +239,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let mapleader = "\<Space>"
 
-" replace tabs with 4 whitespace
-" nmap <F4> :%s/\t/    /g<CR>
-autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.vue set filetype=vue.typescript
-autocmd FileType vue.typescript setlocal commentstring=//\ %s
-autocmd FileType typescript setlocal commentstring=//\ %s
-autocmd FileType json setlocal commentstring=//\ %s
-" autocmd FileType *.jsx,*.tsx setlocal commentstring=//\ %s
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
