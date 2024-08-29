@@ -20,6 +20,12 @@ plug("tpope/vim-repeat")
 plug("jiangmiao/auto-pairs")
 plug("vim-test/vim-test")
 
+-- Elixir & Erlang
+plug("elixir-editors/vim-elixir")
+plug("mhinz/vim-mix-format")
+vim.g.mix_format_on_save = 1
+plug("fishcakez/vim-erlang")
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")

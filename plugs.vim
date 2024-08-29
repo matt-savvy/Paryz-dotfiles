@@ -1,9 +1,3 @@
-" Elixir & Erlang
-Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
-let g:mix_format_on_save = 1
-Plug 'fishcakez/vim-erlang'
-
 " Elm
 Plug 'ElmCast/elm-vim'
 let g:elm_format_autosave = 1
