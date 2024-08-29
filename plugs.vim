@@ -1,6 +1,3 @@
-"" Docker
-Plug 'ekalinin/Dockerfile.vim'
-
 " CSS syntax highlight
 Plug 'othree/csscomplete.vim'
 " Add Support css3 properties

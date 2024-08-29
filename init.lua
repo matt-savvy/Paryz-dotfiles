@@ -39,6 +39,9 @@ plug("fatih/vim-go")
 vim.g.go_fmt_autosave = 1
 vim.g.go_metalinter_autosave = 0
 
+-- Docker
+plug("ekalinin/Dockerfile.vim")
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")
