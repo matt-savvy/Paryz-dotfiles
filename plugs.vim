@@ -1,6 +1,3 @@
-" Coc-nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Editor plugs
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

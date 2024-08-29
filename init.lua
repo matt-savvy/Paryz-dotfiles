@@ -4,6 +4,9 @@ vim.call("plug#begin", "~/.vim/plugged")
 
 vim.cmd.source("~/dotfiles/plugs.vim")
 
+-- Coc-nvim
+plug("neoclide/coc.nvim", {branch = "release"})
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")
