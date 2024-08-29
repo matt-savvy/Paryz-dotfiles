@@ -1,7 +1,3 @@
-" Ruby
-Plug 'thoughtbot/vim-rspec'
-Plug 'aklt/plantuml-syntax'
-
 " Go
 Plug 'fatih/vim-go'
 let g:go_fmt_autosave = 1

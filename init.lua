@@ -30,6 +30,10 @@ plug("fishcakez/vim-erlang")
 plug("ElmCast/elm-vim")
 vim.g.elm_format_autosave = 1
 
+-- Ruby
+plug("thoughtbot/vim-rspec")
+plug("aklt/plantuml-syntax")
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")
