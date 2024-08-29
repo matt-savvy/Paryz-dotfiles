@@ -78,6 +78,12 @@ plug("Shougo/vimproc.vim", {
     },
 })
 
+plug("elzr/vim-json")
+vim.g.vim_json_syntax_conceal = 0
+-- GraphQL syntax highlighting
+-- plug("jparise/vim-graphql")
+-- plug("posva/vim-vue")
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")

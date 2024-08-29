@@ -1,9 +1,3 @@
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-" GraphQL syntax highlighting
-" Plug 'jparise/vim-graphql'
-" Plug 'posva/vim-vue'
-
 """"""" Brackets & Parentheses highlighting
 " Valloric/MatchTagAlways"
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
