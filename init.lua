@@ -52,8 +52,11 @@ vim.api.nvim_create_autocmd("VimLeave", {
     command = "silent !stty ixon",
 })
 
-vim.keymap.set('', '<C-s>', ':w <CR> :echo "Saved" <CR>')
-vim.keymap.set('i', '<C-s>', '<Esc> :w <CR> :echo "Saved" <CR> i')
+local function save()
+    vim.cmd.write()
+    vim.print("Saved")
+end
+vim.keymap.set({"n", "v", "o", "i"}, "<C-s>", save)
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
