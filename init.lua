@@ -58,6 +58,13 @@ local function save()
 end
 vim.keymap.set({"n", "v", "o", "i"}, "<C-s>", save)
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"typescript.tsx", "javascript.tsx", "javascript","typescript"},
+    callback = function()
+        vim.keymap.set("n", "<Leader>s", function() vim.cmd("%s/\t/    /g") end)
+    end
+})
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")

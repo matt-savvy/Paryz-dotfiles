@@ -241,7 +241,6 @@ let mapleader = "\<Space>"
 
 " replace tabs with 4 whitespace
 " nmap <F4> :%s/\t/    /g<CR>
-autocmd FileType typescript.tsx,javascript.tsx,javascript,typescript nmap <Leader>s :%s/\t/  /g<CR>
 autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.vue set filetype=vue.typescript
 autocmd FileType vue.typescript setlocal commentstring=//\ %s
