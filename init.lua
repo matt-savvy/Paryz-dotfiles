@@ -42,6 +42,27 @@ vim.g.go_metalinter_autosave = 0
 -- Docker
 plug("ekalinin/Dockerfile.vim")
 
+-- CSS syntax highlight
+plug("othree/csscomplete.vim")
+-- Add Support css3 properties
+plug("hail2u/vim-css3-syntax")
+plug("cakebaker/scss-syntax.vim")
+-- highlight hex colors in color
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.scss",
+    callback = function(_)
+        vim.opt.filetype = "scss.css"
+    end
+})
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.sass",
+    callback = function(_)
+        vim.opt.filetype = "sass.css"
+    end
+})
+-- scss lint
+plug("gcorne/vim-sass-lint")
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")

@@ -1,14 +1,3 @@
-" CSS syntax highlight
-Plug 'othree/csscomplete.vim'
-" Add Support css3 properties
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-" highlight hex colors in color
-au BufRead,BufNewFile *.scss set filetype=scss.css
-au BufRead,BufNewFile *.sass set filetype=sass.css
-" scss lint
-Plug 'gcorne/vim-sass-lint'
-
 """"""" Javascript
 " Syntax highlighting for .jsx (typescript)
 Plug 'peitalin/vim-jsx-typescript'
