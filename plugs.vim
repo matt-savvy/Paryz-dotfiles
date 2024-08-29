@@ -33,13 +33,6 @@ Plug 'fatih/vim-go'
 let g:go_fmt_autosave = 1
 let g:go_metalinter_autosave = 0
 
-" Color themes
-Plug 'morhetz/gruvbox'
-Plug 'jnurmine/Zenburn'
-Plug 'petobens/colorish'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'NLKNguyen/papercolor-theme'
-
 "" Docker
 Plug 'ekalinin/Dockerfile.vim'
 

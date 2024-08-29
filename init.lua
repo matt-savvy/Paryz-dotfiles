@@ -4,6 +4,13 @@ vim.call("plug#begin", "~/.vim/plugged")
 
 vim.cmd.source("~/dotfiles/plugs.vim")
 
+-- Color themes
+plug("morhetz/gruvbox")
+plug("jnurmine/Zenburn")
+plug("petobens/colorish")
+plug("dracula/vim", { as = "dracula" })
+plug("NLKNguyen/papercolor-theme")
+
 vim.call("plug#end")
 
 vim.cmd.source("~/dotfiles/vimrc")
