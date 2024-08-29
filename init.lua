@@ -34,6 +34,11 @@ vim.g.elm_format_autosave = 1
 plug("thoughtbot/vim-rspec")
 plug("aklt/plantuml-syntax")
 
+-- Go
+plug("fatih/vim-go")
+vim.g.go_fmt_autosave = 1
+vim.g.go_metalinter_autosave = 0
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")

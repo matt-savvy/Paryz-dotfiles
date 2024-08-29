@@ -1,8 +1,3 @@
-" Go
-Plug 'fatih/vim-go'
-let g:go_fmt_autosave = 1
-let g:go_metalinter_autosave = 0
-
 "" Docker
 Plug 'ekalinin/Dockerfile.vim'
 
