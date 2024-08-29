@@ -94,9 +94,6 @@ let g:user_emmet_leader_key='<C-k>'
 let g:user_emmet_settings = {'javascript': {'extends': 'jsx'}}
 call plug#end()
 
-map <C-s> :w <CR> :echo "Saved" <CR>
-imap <C-s> <Esc> :w <CR> :echo "Saved" <CR> i
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.

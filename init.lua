@@ -52,6 +52,9 @@ vim.api.nvim_create_autocmd("VimLeave", {
     command = "silent !stty ixon",
 })
 
+vim.keymap.set('', '<C-s>', ':w <CR> :echo "Saved" <CR>')
+vim.keymap.set('i', '<C-s>', '<Esc> :w <CR> :echo "Saved" <CR> i')
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
