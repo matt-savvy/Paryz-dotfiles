@@ -84,6 +84,22 @@ vim.g.vim_json_syntax_conceal = 0
 -- plug("jparise/vim-graphql")
 -- plug("posva/vim-vue")
 
+
+------- Brackets & Parentheses highlighting
+-- Valloric/MatchTagAlways --
+vim.keymap.set("n", "<Leader>%", ":MtaJumpToOtherTag<CR>", { remap = false })
+vim.g.mta_filetypes = {
+    html= 1,
+    xhtml = 1,
+    xml = 1,
+    javascript = 1,
+    [ "javascript.jsx" ] = 1,
+    [ "javascript.tsx" ] = 1,
+    [ "typescript.tsx" ] = 1,
+    typescript = 1
+}
+
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")
