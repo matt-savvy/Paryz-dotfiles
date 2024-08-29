@@ -1,3 +1,11 @@
+local plug = vim.fn["plug#"]
+
+vim.call("plug#begin", "~/.vim/plugged")
+
+vim.cmd.source("~/dotfiles/plugs.vim")
+
+vim.call("plug#end")
+
 vim.cmd.source("~/dotfiles/vimrc")
 
 vim.opt.hidden = true           -- Allow buffers to become hidden (default)
@@ -116,3 +124,4 @@ vim.keymap.set("n", "<C-l>", wincmd("l"), { silent = true })
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
+
