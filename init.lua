@@ -43,6 +43,9 @@ vim.opt.shortmess:append({ c = true })
 -- diagnostics appear/become resolved.
 vim.opt.signcolumn = "yes"
 
+-- Allow us to use Ctrl-s and Ctrl-q as keybinds
+vim.cmd("silent !stty -ixon")
+
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("heraldish")
