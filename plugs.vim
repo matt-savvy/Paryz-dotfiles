@@ -1,16 +1,3 @@
-" Editor plugs
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'itchyny/lightline.vim'
-Plug 'jreybert/vimagit'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-test/vim-test'
-
 " Elixir & Erlang
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'

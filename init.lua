@@ -7,6 +7,19 @@ vim.cmd.source("~/dotfiles/plugs.vim")
 -- Coc-nvim
 plug("neoclide/coc.nvim", {branch = "release"})
 
+-- Editor plugs
+plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+plug("scrooloose/nerdtree", { on =  "NERDTreeToggle" })
+plug("itchyny/lightline.vim")
+plug("jreybert/vimagit")
+plug("Lokaltog/vim-easymotion")
+plug("tpope/vim-surround")
+plug("junegunn/fzf", { dir = "~/.fzf", ["do"] = "./install --all --no-update-rc" })
+plug("junegunn/fzf.vim")
+plug("tpope/vim-repeat")
+plug("jiangmiao/auto-pairs")
+plug("vim-test/vim-test")
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")
