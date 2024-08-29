@@ -99,6 +99,9 @@ vim.g.mta_filetypes = {
     typescript = 1
 }
 
+-- C-m is synonymous with "enter", so will cause enter key to lag
+vim.g.user_emmet_leader_key = "<C-k>"
+vim.g.user_emmet_settings = { javascript = { extends = "jsx" }}
 
 -- Color themes
 plug("morhetz/gruvbox")
