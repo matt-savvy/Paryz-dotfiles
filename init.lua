@@ -58,7 +58,6 @@ local function save()
 end
 vim.keymap.set({"n", "v", "o", "i"}, "<C-s>", save)
 
-
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     pattern = {"*.ts", "*.js"},
     callback = function(_)
@@ -97,6 +96,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+-- buffers
+vim.keymap.set("", "gn", vim.cmd.bnext)
+vim.keymap.set("", "gp", vim.cmd.bprev)
+vim.keymap.set("n", "<Leader>b", vim.cmd.buffers)
+vim.keymap.set("n", "<Leader>bd", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 ------------- Color Schemes ----------------
 vim.opt.termguicolors = true

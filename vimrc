@@ -241,14 +241,6 @@ let mapleader = "\<Space>"
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-
-""  buffers
-" nmap gt :bnext<CR>
-" nmap tg :bprevious<CR>
-map gn :bn<cr>
-map gp :bp<cr>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 " open magit
 nmap <Leader>gs :Magit<CR>
 nmap tg :tabprevious<CR>
