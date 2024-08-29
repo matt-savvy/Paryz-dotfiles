@@ -63,6 +63,21 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 -- scss lint
 plug("gcorne/vim-sass-lint")
 
+------- Javascript
+-- Syntax highlighting for .jsx (typescript)
+plug("peitalin/vim-jsx-typescript")
+-- Typescript -
+plug("leafgarland/typescript-vim")
+plug("Shougo/vimproc.vim", {
+    build = {
+        windows = "tools\\update-dll-mingw",
+        cygwin = "make -f make_cygwin.mak",
+        mac = "make -f make_mac.mak",
+        linux = "make",
+        unix = "gmake",
+    },
+})
+
 -- Color themes
 plug("morhetz/gruvbox")
 plug("jnurmine/Zenburn")

@@ -1,18 +1,3 @@
-""""""" Javascript
-" Syntax highlighting for .jsx (typescript)
-Plug 'peitalin/vim-jsx-typescript'
-"" Typescript "
-Plug 'leafgarland/typescript-vim'
-Plug 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 " GraphQL syntax highlighting
